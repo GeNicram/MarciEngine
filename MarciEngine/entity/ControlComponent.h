@@ -6,6 +6,7 @@
 #include <SFML/Window/Event.hpp>
 
 #include <functional>
+#include <memory>
 
 class ControlComponent : public Component
 {
