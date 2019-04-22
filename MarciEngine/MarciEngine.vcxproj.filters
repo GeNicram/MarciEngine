@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Entity">
+      <UniqueIdentifier>{41c9dec5-f9f9-46fa-809d-d9109d838701}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager">
+      <UniqueIdentifier>{61cfbd29-8fdb-4e42-8e44-0345f341a0ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{95197525-ed0f-41c2-9fc9-15484335a855}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="entity\CollideComponent.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="entity\Component.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="entity\ControlComponent.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="entity\Entity.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="entity\GraphicComponent.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="entity\PositionComponent.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="entity\ScriptComponent.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="entity\SpawnComponent.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="MarciEngine.h" />
+    <ClInclude Include="manager\CollideManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="manager\ControlManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="manager\GraphicManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="manager\PositionManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="manager\ScriptManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="manager\SpawnManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="resource\Graphic.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="manager\WindowManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\ComponentTypes.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="entity\EntityBuilder.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="manager\Managers.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineObject.h" />
+    <ClInclude Include="resource\GraphicPrimitive.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="resource\GraphicText.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="resource\GraphicTexture.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="entity\Entity.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="entity\Component.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="entity\CollideComponent.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="entity\ControlComponent.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="entity\GraphicComponent.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="entity\PositionComponent.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="entity\ScriptComponent.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="entity\SpawnComponent.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="manager\CollideManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="manager\ControlManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="manager\GraphicManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="manager\PositionManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="manager\ScriptManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="manager\SpawnManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="MarciEngine.cpp" />
+    <ClCompile Include="resource\Graphic.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="manager\WindowManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="entity\EntityBuilder.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="manager\Managers.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineObject.cpp" />
+    <ClCompile Include="resource\GraphicPrimitive.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\GraphicText.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\GraphicTexture.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
