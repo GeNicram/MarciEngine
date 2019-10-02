@@ -36,7 +36,7 @@ const std::vector<CollideComponent::group>& CollideComponent::GetCollidingGroup(
 	return colliding_groups;
 }
 
-const sf::FloatRect& CollideComponent::GetCollideArea()
+const sf::FloatRect CollideComponent::GetCollideArea()
 {
 	return sf::FloatRect(owner->GetPositionComponent()->GetPosition(), size);
 }

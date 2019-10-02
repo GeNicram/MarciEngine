@@ -23,7 +23,7 @@ public:
 	void SetGroup(group component_group);
 	void SetCollidingGroup(const std::vector<group>& colligind);
 	const std::vector<group>& GetCollidingGroup();
-	const sf::FloatRect& GetCollideArea();
+	const sf::FloatRect GetCollideArea();
 
 	void SetCallback(callback function, EngineObject* object);
 	void CheckCollisions(std::shared_ptr<CollideComponent>& collider);
