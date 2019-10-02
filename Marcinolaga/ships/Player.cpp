@@ -62,6 +62,8 @@ void Player::InputEvent(const sf::Event& event)
 			case sf::Keyboard::Right:
 				buttons_state.right = ButtonsState::pressed;
 				break;
+			default:
+				break;
 		}
 
 	} else if (event.type == sf::Event::KeyReleased)
@@ -79,6 +81,8 @@ void Player::InputEvent(const sf::Event& event)
 				break;
 			case sf::Keyboard::Right:
 				buttons_state.right = ButtonsState::released;
+				break;
+			default:
 				break;
 		}
 	}
