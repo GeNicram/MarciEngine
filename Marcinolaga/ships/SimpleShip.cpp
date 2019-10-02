@@ -59,5 +59,6 @@ void SimpleShip::Update(sf::Time delta_time)
 
 void SimpleShip::SetLevel(int level)
 {
-	individual_speed = enemy_speed + 0.01f * level * (std::rand() / enemy_speed - enemy_speed/2);
+	int speed_factor = std::rand() % static_cast<int>(enemy_speed);
+	individual_speed = enemy_speed + 0.01f * level * (speed_factor - enemy_speed/2);
 }

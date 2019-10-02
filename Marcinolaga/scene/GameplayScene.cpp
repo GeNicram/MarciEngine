@@ -35,6 +35,8 @@ void GameplayScene::SetGameArea(const sf::IntRect area)
 		.AddRectangle(area.width, area.height, sf::Color::Blue, 0);
 
 	bullet_area = area;
+
+	SpawnEnemy();
 }
 
 void GameplayScene::Update(sf::Time delta_time)
@@ -90,7 +92,10 @@ void GameplayScene::SpawnEnemy()
 	SimpleShip& enemy = **enemies.emplace(enemies.end(), (std::rand() % 2 ? new SimpleShip() : new ShootingShip()));
 	enemy.Create();
 	enemy.SetLevel(current_level);
-	enemy.SetPosition(sf::Vector2f(game_area.left + std::rand()*game_area.width/RAND_MAX, game_area.top));
+
+	float factor = static_cast<float>(std::rand())/RAND_MAX;
+	int rand_result = factor*game_area.width;
+	enemy.SetPosition(sf::Vector2f(game_area.left + rand_result, game_area.top));
 }
 
 void GameplayScene::HandleCollision(Entity* collide, Entity* touched)
