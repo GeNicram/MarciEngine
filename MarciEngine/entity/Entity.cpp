@@ -3,12 +3,12 @@
 #include "ComponentTypes.h"
 #include "EntityBuilder.h"
 
-Entity::Entity()
+EntityBase::EntityBase()
 	: abandon_components_after_delete(true)
 {
 }
 
-Entity::Entity(Entity& other)
+EntityBase::EntityBase(EntityBase& other)
 	: active(other.active)
 	, components(other.components)
 	, abandon_components_after_delete(true)
@@ -17,7 +17,7 @@ Entity::Entity(Entity& other)
 	other.abandon_components_after_delete = false;
 }
 
-Entity::Entity(Entity&& other)
+EntityBase::EntityBase(EntityBase&& other)
 	: active(other.active)
 	, components(other.components)
 	, abandon_components_after_delete(true)
@@ -26,7 +26,7 @@ Entity::Entity(Entity&& other)
 	other.abandon_components_after_delete = false;
 }
 
-Entity& Entity::operator=(Entity&& other)
+EntityBase& EntityBase::operator=(EntityBase&& other)
 {
 	active = other.active;
 	components = other.components;
@@ -38,7 +38,7 @@ Entity& Entity::operator=(Entity&& other)
 	return *this;
 }
 
-Entity& Entity::operator=(const Entity& other)
+EntityBase& EntityBase::operator=(const EntityBase& other)
 {
 	active = other.active;
 	components = other.components;
@@ -49,38 +49,38 @@ Entity& Entity::operator=(const Entity& other)
 	return *this;
 }
 
-Entity::~Entity()
+EntityBase::~EntityBase()
 {
 	if (abandon_components_after_delete)
 		AbandonComponents();
 }
 
-EntityBuilder Entity::Create()
+EntityBuilder EntityBase::Create()
 {
 	return EntityBuilder{};
 }
 
-void Entity::Activate()
+void EntityBase::Activate()
 {
 	active = true;
 }
 
-void Entity::Deactivate()
+void EntityBase::Deactivate()
 {
 	active = false;
 }
 
-bool Entity::IsActive()
+bool EntityBase::IsActive()
 {
 	return active;
 }
 
-void Entity::AddComponent(std::shared_ptr<Component> component)
+void EntityBase::AddComponent(std::shared_ptr<Component> component)
 {
 	components.push_back(component);
 }
 
-std::vector<std::shared_ptr<Component>> Entity::GetComponents(component_type type)
+std::vector<std::shared_ptr<Component>> EntityBase::GetComponents(component_type type)
 {
 	std::vector<std::shared_ptr<Component>> needed_components;
 
@@ -93,14 +93,14 @@ std::vector<std::shared_ptr<Component>> Entity::GetComponents(component_type typ
 	return needed_components;
 }
 
-std::shared_ptr<PositionComponent> Entity::GetPositionComponent()
+std::shared_ptr<PositionComponent> EntityBase::GetPositionComponent()
 {
 	auto position = GetComponents(component_type::position);
 
 	return std::dynamic_pointer_cast<PositionComponent>(position[0]);
 }
 
-void Entity::UpdateComponentsOwner()
+void EntityBase::UpdateComponentsOwner()
 {
 	for (auto& component : components)
 	{
@@ -108,7 +108,7 @@ void Entity::UpdateComponentsOwner()
 	}
 }
 
-void Entity::AbandonComponents()
+void EntityBase::AbandonComponents()
 {
 	for (auto& component : components)
 	{

@@ -3,20 +3,23 @@
 #include "../EngineObject.h"
 #include "ComponentTypes.h"
 
+#include <memory>
+
 class Entity;
 
 class Component : public EngineObject
 {
 public:
 	typedef unsigned int uid;
-	Component(Entity& owner);
+	Component(std::weak_ptr<Entity> owner);
 	~Component();
-	void UpdateOwner(Entity* new_owner);
+	// possible no more needed
+	//void UpdateOwner(Entity new_owner);
 	bool HasOwner();
-	Entity* GetOwner();
+	std::weak_ptr<Entity> GetOwner();
 
 	virtual component_type GetType() = 0;
 protected:
-	Entity* owner;
+	std::weak_ptr<Entity> owner;
 };
 

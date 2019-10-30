@@ -38,7 +38,7 @@ private:
 
 class EntityBuilder : public EntityBuilderBase
 {
-	Entity entity;
+	std::shared_ptr<Entity> entity;
 public:
 	EntityBuilder();
 };

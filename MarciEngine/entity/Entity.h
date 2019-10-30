@@ -13,16 +13,16 @@ class GraphicComponent;
 class PositionComponent;
 class EntityBuilder;
 
-class Entity : EngineObject
+class EntityBase : EngineObject
 {
 public:
-	Entity();
-	Entity(Entity& other);
-	Entity(Entity&& other);
+	EntityBase();
+	EntityBase(Entity& other);
+	EntityBase(Entity&& other);
 	Entity& operator=(Entity&& other);
 	Entity& operator=(const Entity& other);
 
-	~Entity();
+	~EntityBase();
 	static EntityBuilder Create();
 
 	void Activate();
@@ -44,3 +44,7 @@ private:
 	void AbandonComponents();
 };
 
+class Entity : public std::shared_ptr<EntityBase>
+{
+
+};

@@ -2,8 +2,8 @@
 
 #include "Entity.h"
 
-Component::Component(Entity& owner)
-	: owner(&owner)
+Component::Component(std::weak_ptr<Entity> owner)
+	: owner(owner)
 {
 }
 
@@ -11,17 +11,17 @@ Component::~Component()
 {
 }
 
-void Component::UpdateOwner(Entity* new_owner)
-{
-	owner = new_owner;
-}
+// void Component::UpdateOwner(Entity* new_owner)
+// {
+// 	owner = new_owner;
+// }
 
 bool Component::HasOwner()
 {
-	return !!owner;
+	return !owner.expired();
 }
 
-Entity* Component::GetOwner()
+std::weak_ptr<Entity> Component::GetOwner()
 {
 	return owner;
 }
