@@ -1,25 +1,26 @@
 #pragma once
 
 #include "../EngineObject.h"
+#include "../EngineTypes.h"
 #include "ComponentTypes.h"
 
 #include <memory>
 
-class Entity;
+class EntityBase;
 
 class Component : public EngineObject
 {
 public:
 	typedef unsigned int uid;
-	Component(std::weak_ptr<Entity> owner);
+	Component(Entity owner);
 	~Component();
 	// possible no more needed
 	//void UpdateOwner(Entity new_owner);
 	bool HasOwner();
-	std::weak_ptr<Entity> GetOwner();
+	Entity GetOwner();
 
 	virtual component_type GetType() = 0;
 protected:
-	std::weak_ptr<Entity> owner;
+	EntityPtr owner;
 };
 

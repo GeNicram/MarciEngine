@@ -17,10 +17,10 @@ class EntityBase : EngineObject
 {
 public:
 	EntityBase();
-	EntityBase(Entity& other);
-	EntityBase(Entity&& other);
-	Entity& operator=(Entity&& other);
-	Entity& operator=(const Entity& other);
+	EntityBase(EntityBase& other);
+	EntityBase(EntityBase&& other);
+	EntityBase& operator=(EntityBase&& other);
+	EntityBase& operator=(const EntityBase& other);
 
 	~EntityBase();
 	static EntityBuilder Create();
@@ -42,9 +42,4 @@ private:
 
 	void UpdateComponentsOwner();
 	void AbandonComponents();
-};
-
-class Entity : public std::shared_ptr<EntityBase>
-{
-
 };

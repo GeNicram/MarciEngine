@@ -2,7 +2,7 @@
 
 #include "Entity.h"
 
-Component::Component(std::weak_ptr<Entity> owner)
+Component::Component(Entity owner)
 	: owner(owner)
 {
 }
@@ -21,7 +21,7 @@ bool Component::HasOwner()
 	return !owner.expired();
 }
 
-std::weak_ptr<Entity> Component::GetOwner()
+Entity Component::GetOwner()
 {
-	return owner;
+	return owner.lock();
 }

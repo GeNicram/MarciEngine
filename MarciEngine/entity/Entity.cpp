@@ -104,7 +104,7 @@ void EntityBase::UpdateComponentsOwner()
 {
 	for (auto& component : components)
 	{
-		component->UpdateOwner(this);
+		//component->UpdateOwner(this);
 	}
 }
 
@@ -112,6 +112,6 @@ void EntityBase::AbandonComponents()
 {
 	for (auto& component : components)
 	{
-		component->UpdateOwner(nullptr);
+		//component->UpdateOwner(nullptr);
 	}
 }

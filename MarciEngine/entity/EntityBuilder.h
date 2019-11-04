@@ -11,12 +11,12 @@
 class EntityBuilderBase
 {
 protected:
-	explicit EntityBuilderBase(Entity& entity);
+	explicit EntityBuilderBase(EntityBase& entity);
 public:
 	~EntityBuilderBase();
 
 	operator Entity() const;
-	std::unique_ptr<Entity> Clone();
+	EntityPtr Clone();
 
 	EntityBuilderBase& AddCollide(CollideComponent::group group_id,
 		const sf::Vector2f& collider_size, const std::vector<CollideComponent::group> collide_with,
@@ -33,12 +33,12 @@ public:
 	EntityBuilderBase& AddSpawn();
 
 private:
-	Entity& entity;
+	EntityBase entity;
 };
 
 class EntityBuilder : public EntityBuilderBase
 {
-	std::shared_ptr<Entity> entity;
+	Entity entity;
 public:
 	EntityBuilder();
 };

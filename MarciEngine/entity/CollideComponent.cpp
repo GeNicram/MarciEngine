@@ -4,6 +4,8 @@
 
 #include <SFML/Graphics/Rect.hpp>
 
+#include <cassert>
+
 
 CollideComponent::CollideComponent(Entity& owner, const sf::Vector2f size)
 	: Component(owner)
@@ -38,7 +40,16 @@ const std::vector<CollideComponent::group>& CollideComponent::GetCollidingGroup(
 
 const sf::FloatRect CollideComponent::GetCollideArea()
 {
-	return sf::FloatRect(owner->GetPositionComponent()->GetPosition(), size);
+	Entity owner_ptr = owner.lock();
+	if (owner_ptr)
+	{
+		return sf::FloatRect(owner_ptr->GetPositionComponent()->GetPosition(), size);
+	}
+	else
+	{
+		assert(!"Missing Owner!");
+		return sf::FloatRect();
+	}
 }
 
 void CollideComponent::SetCallback(CollideComponent::callback function, EngineObject* object)
