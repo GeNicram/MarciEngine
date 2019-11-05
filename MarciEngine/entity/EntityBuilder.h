@@ -11,11 +11,11 @@
 class EntityBuilderBase
 {
 protected:
-	explicit EntityBuilderBase(EntityBase& entity);
+	explicit EntityBuilderBase(std::unique_ptr<EntityBase> entity);
 public:
 	~EntityBuilderBase();
 
-	operator Entity() const;
+	operator Entity();
 	EntityPtr Clone();
 
 	EntityBuilderBase& AddCollide(CollideComponent::group group_id,
@@ -33,7 +33,7 @@ public:
 	EntityBuilderBase& AddSpawn();
 
 private:
-	EntityBase entity;
+	std::unique_ptr<EntityBase> entity;
 };
 
 class EntityBuilder : public EntityBuilderBase

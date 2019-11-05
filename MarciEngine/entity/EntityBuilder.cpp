@@ -13,8 +13,8 @@
 #include <cassert>
 
 
-EntityBuilderBase::EntityBuilderBase(Entity& entity)
-	: entity(entity)
+EntityBuilderBase::EntityBuilderBase(std::unique_ptr<EntityBase> entity)
+	: entity(entity.release())
 {
 }
 
@@ -23,9 +23,10 @@ EntityBuilderBase::~EntityBuilderBase()
 {
 }
 
-EntityBuilderBase::operator Entity() const
+EntityBuilderBase::operator Entity()
 {
-	return std::move(entity);
+	std::shared_ptr a = std::move(entity.release());
+	return entity.release();
 }
 
 std::unique_ptr<Entity> EntityBuilderBase::Clone()
