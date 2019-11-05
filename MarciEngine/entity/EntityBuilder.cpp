@@ -25,11 +25,10 @@ EntityBuilderBase::~EntityBuilderBase()
 
 EntityBuilderBase::operator Entity()
 {
-	std::shared_ptr a = std::move(entity.release());
-	return entity.release();
+	return std::make_shared<EntityBase>(entity.release());
 }
 
-std::unique_ptr<Entity> EntityBuilderBase::Clone()
+std::unique_ptr<EntityBase> EntityBuilderBase::Clone()
 {
 	assert(!"Not implemented");
 	return nullptr;// std::copy(entity);

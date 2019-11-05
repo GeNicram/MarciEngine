@@ -16,7 +16,7 @@ public:
 	~EntityBuilderBase();
 
 	operator Entity();
-	EntityPtr Clone();
+	std::unique_ptr<EntityBase> Clone();
 
 	EntityBuilderBase& AddCollide(CollideComponent::group group_id,
 		const sf::Vector2f& collider_size, const std::vector<CollideComponent::group> collide_with,

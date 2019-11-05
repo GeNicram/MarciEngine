@@ -11,7 +11,7 @@ CollideManager::~CollideManager()
 {
 }
 
-std::shared_ptr<CollideComponent> CollideManager::ApplyCollider(Entity& entity, CollideComponent::group group_id,
+std::shared_ptr<CollideComponent> CollideManager::ApplyCollider(EntityPtr entity, CollideComponent::group group_id,
 	const sf::Vector2f& collider_size, const std::vector<CollideComponent::group> collide_with)
 {
 
