@@ -46,7 +46,7 @@ void PlayerTouched(EngineObject* object, CollideComponent& collide, std::shared_
 
 void ShootingShip::Create()
 {
-	 entity = Entity::Create()
+	 entity = EntityBase::Create()
 		 .AddGraphic("Assets/enemy1.png", 50)
 		 .AddPosition(sf::Vector2f(0, 0))
 		 .AddScript(UpdateCallback, this)

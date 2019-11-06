@@ -17,7 +17,7 @@ GameplayScene::GameplayScene()
 	, player_lives(player_max_lives)
 	, player_respawn(sf::Time::Zero)
 {
-	enemy_spawn = Entity::Create().AddScript(Scene::UpdateCallback, this);
+	enemy_spawn = EntityBase::Create().AddScript(Scene::UpdateCallback, this);
 
 	player.reset(new Player());
 }
@@ -30,7 +30,7 @@ void GameplayScene::SetGameArea(const sf::IntRect area)
 {
 	game_area = area;
 
-	background = Entity::Create()
+	background = EntityBase::Create()
 		.AddPosition(sf::Vector2f(area.left, area.top))
 		.AddRectangle(area.width, area.height, sf::Color::Blue, 0);
 
@@ -98,9 +98,9 @@ void GameplayScene::SpawnEnemy()
 	enemy.SetPosition(sf::Vector2f(game_area.left + rand_result, game_area.top));
 }
 
-void GameplayScene::HandleCollision(Entity* collide, Entity* touched)
+void GameplayScene::HandleCollision(EntityPtr collide, EntityPtr touched)
 {
-	if (&player->GetEntity() == touched)
+	if (player->GetEntity() == touched.lock())
 	{
 		player.reset(nullptr);
 		player_respawn = sf::seconds(player_respawn_time);
@@ -112,7 +112,7 @@ void GameplayScene::HandleCollision(Entity* collide, Entity* touched)
 
 	for (auto enemy = enemies.begin(); enemy != enemies.end(); ++enemy)
 	{
-		if (&(*enemy)->GetEntity() == touched)
+		if ((*enemy)->GetEntity() == touched.lock())
 		{
 			enemies.erase(enemy);
 			return;

@@ -11,7 +11,7 @@
 class EntityBuilderBase
 {
 protected:
-	explicit EntityBuilderBase(std::unique_ptr<EntityBase> entity);
+	explicit EntityBuilderBase(Entity entity);
 public:
 	~EntityBuilderBase();
 
@@ -33,7 +33,7 @@ public:
 	EntityBuilderBase& AddSpawn();
 
 private:
-	std::unique_ptr<EntityBase> entity;
+	Entity entity;
 };
 
 class EntityBuilder : public EntityBuilderBase

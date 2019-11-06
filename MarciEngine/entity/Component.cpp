@@ -2,7 +2,7 @@
 
 #include "Entity.h"
 
-Component::Component(Entity owner)
+Component::Component(Entity& owner)
 	: owner(owner)
 {
 }

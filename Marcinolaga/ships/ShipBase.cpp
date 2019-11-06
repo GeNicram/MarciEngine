@@ -18,12 +18,12 @@ ShipBase::~ShipBase()
 
 const sf::Vector2f ShipBase::GetPosition()
 {
-	return entity.GetPositionComponent()->GetPosition();
+	return entity->GetPositionComponent()->GetPosition();
 }
 
 void ShipBase::SetPosition(const sf::Vector2f& position)
 {
-	entity.GetPositionComponent()->SetPosition(position);
+	entity->GetPositionComponent()->SetPosition(position);
 }
 
 const Entity& ShipBase::GetEntity() const

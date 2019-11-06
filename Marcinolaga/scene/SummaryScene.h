@@ -11,7 +11,7 @@ public:
 	virtual ~SummaryScene();
 
 	virtual void Update(sf::Time delta_time) override;
-	virtual void HandleCollision(Entity* collide, Entity* touched) override;
+	virtual void HandleCollision(EntityPtr collide, EntityPtr touched) override;
 
 	static void ToTitleCallback(EngineObject* object, const sf::Event& event);
 	void ToTitle(const sf::Event& event);

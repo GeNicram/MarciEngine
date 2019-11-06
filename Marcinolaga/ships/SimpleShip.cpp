@@ -29,7 +29,7 @@ extern void PlayerTouched(EngineObject* object, CollideComponent& collide, std::
 
 void SimpleShip::Create()
 {
-	 entity = Entity::Create()
+	 entity = EntityBase::Create()
 		 .AddGraphic("Assets/enemy2.png", 50)
 		 .AddPosition(sf::Vector2f(0, 0))
 		 .AddScript(UpdateCallback, this)
@@ -48,7 +48,7 @@ void SimpleShip::UpdateCallback(EngineObject* object, sf::Time delta_time)
 
 void SimpleShip::Update(sf::Time delta_time)
 {
-	auto position = entity.GetComponents(component_type::position);
+	auto position = entity->GetComponents(component_type::position);
 
 	auto pos = std::dynamic_pointer_cast<PositionComponent>(position[0]);
 

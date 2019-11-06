@@ -20,7 +20,7 @@ public:
 
 	operation GetOperation();
 
-	virtual void HandleCollision(Entity* collide, Entity* touched) = 0;
+	virtual void HandleCollision(EntityPtr collide, EntityPtr touched) = 0;
 protected:
 	operation current_operation;
 };

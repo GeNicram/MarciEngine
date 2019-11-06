@@ -70,7 +70,7 @@ std::shared_ptr<GraphicComponent> GraphicManager::ApplyGraphic(
 	auto component = new_component->second;
 
 	component->layer_id = layer;
-	entity.AddComponent(component);
+	entity->AddComponent(component);
 
 	return new_component->second;
 }

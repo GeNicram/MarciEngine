@@ -51,7 +51,7 @@ std::vector<std::shared_ptr<ControlComponent>> ControlManager::ApplyControl(Enti
 			control_components.emplace(key, new ControlComponent(entity));
 
 		new_control->second->SetCallback(function, object);
-		entity.AddComponent(new_control->second);
+		entity->AddComponent(new_control->second);
 
 		new_components.push_back(new_control->second);
 	}

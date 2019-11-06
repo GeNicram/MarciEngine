@@ -12,7 +12,7 @@ class Component : public EngineObject
 {
 public:
 	typedef unsigned int uid;
-	Component(Entity owner);
+	Component(Entity& owner);
 	~Component();
 	// possible no more needed
 	//void UpdateOwner(Entity new_owner);

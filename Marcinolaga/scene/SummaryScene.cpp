@@ -5,7 +5,7 @@
 
 SummaryScene::SummaryScene()
 {
-	game_over = Entity::Create()
+	game_over = EntityBase::Create()
 		.AddGraphic("Assets/summary.png", 100)
 		.AddPosition(sf::Vector2f(400, 200))
 		.AddControl({ sf::Keyboard::Space }, ToTitleCallback, this);
@@ -21,7 +21,7 @@ void SummaryScene::Update(sf::Time delta_time)
 
 }
 
-void SummaryScene::HandleCollision(Entity* collide, Entity* touched)
+void SummaryScene::HandleCollision(EntityPtr collide, EntityPtr touched)
 {
 
 }

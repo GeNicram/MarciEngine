@@ -12,7 +12,7 @@ void coll_test(EngineObject* object, CollideComponent& collide, std::shared_ptr<
 
 Bullet::Bullet(bool player_bullet)
 {
-	entity = Entity::Create()
+	entity = EntityBase::Create()
 		.AddCircle(5,
 			player_bullet ? sf::Color::White : sf::Color::Red,
 			player_bullet ? ship_layers::player_bullet : ship_layers::enemy_bullet)

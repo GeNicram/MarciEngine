@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
 {
 	me::Init();
 
-	Entity scene_squencer = Entity::Create().AddScript(Scenes, nullptr);
+	Entity scene_squencer = EntityBase::Create().AddScript(Scenes, nullptr);
 
 	me::ShowWindow(1280, 800, "Marcinolaga");
 	me::StartLoop();

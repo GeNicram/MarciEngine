@@ -27,7 +27,8 @@ GraphicComponent::~GraphicComponent()
 
 void GraphicComponent::Render(sf::RenderWindow& target)
 {
-	std::vector<std::shared_ptr<Component>> positions = owner->GetComponents(component_type::position);
+	Entity valid_owner = owner.lock();
+	std::vector<std::shared_ptr<Component>> positions = valid_owner->GetComponents(component_type::position);
 
 	for (auto& position : positions)
 	{

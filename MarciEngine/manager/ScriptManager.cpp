@@ -19,7 +19,7 @@ std::shared_ptr<ScriptComponent> ScriptManager::ApplyScript(Entity& entity, Scri
 	std::vector<std::shared_ptr<ScriptComponent>>::iterator new_script =
 		new_script_components.emplace(new_script_components.end(), new ScriptComponent(entity));
 
-	entity.AddComponent(*new_script);
+	entity->AddComponent(*new_script);
 
 	(*new_script)->SetScript(callback, object);
 

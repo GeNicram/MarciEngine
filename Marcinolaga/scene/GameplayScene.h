@@ -18,7 +18,7 @@ public:
 
 	void SetGameArea(const sf::IntRect area);
 	virtual void Update(sf::Time delta_time) override;
-	virtual void HandleCollision(Entity* collide, Entity* touched) override;
+	virtual void HandleCollision(EntityPtr collide, EntityPtr touched) override;
 	std::vector<std::unique_ptr<Bullet>>& GetBulletContainer();
 
 private:

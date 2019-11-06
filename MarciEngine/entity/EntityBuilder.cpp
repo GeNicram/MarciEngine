@@ -13,8 +13,8 @@
 #include <cassert>
 
 
-EntityBuilderBase::EntityBuilderBase(std::unique_ptr<EntityBase> entity)
-	: entity(entity.release())
+EntityBuilderBase::EntityBuilderBase(Entity entity)
+	: entity(entity)
 {
 }
 
@@ -25,7 +25,7 @@ EntityBuilderBase::~EntityBuilderBase()
 
 EntityBuilderBase::operator Entity()
 {
-	return std::make_shared<EntityBase>(entity.release());
+	return entity;
 }
 
 std::unique_ptr<EntityBase> EntityBuilderBase::Clone()
@@ -119,6 +119,8 @@ EntityBuilderBase& EntityBuilderBase::AddSpawn()
 }
 
 EntityBuilder::EntityBuilder()
-	: EntityBuilderBase(entity)
+	: entity(new EntityBase())
+	, EntityBuilderBase(entity)
 {
+	entity->active = 111;
 }

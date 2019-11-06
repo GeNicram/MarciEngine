@@ -17,7 +17,7 @@ Player::Player()
 	: buttons_state{ButtonsState::unknown}
 	, passed_time(sf::Time::Zero)
 {
-	 entity = Entity::Create()
+	 entity = EntityBase::Create()
 		 .AddGraphic("Assets/player.png", 100)
 		 .AddPosition(sf::Vector2f(400, 700))
 		 .AddControl({ sf::Keyboard::Up, sf::Keyboard::Down, sf::Keyboard::Left, sf::Keyboard::Right },
@@ -119,7 +119,7 @@ void Player::MovePlayerCallback(EngineObject* object, sf::Time delta_time)
 void Player::MovePlayer(sf::Time delta_time)
 {
 	passed_time += delta_time;
-	auto position = entity.GetPositionComponent();
+	auto position = entity->GetPositionComponent();
 
 	sf::Vector2f move_direction(
 		buttons_state.right == ButtonsState::pressed ? 1.0f : buttons_state.left == ButtonsState::pressed ? -1.0f : 0.0f,
@@ -130,7 +130,7 @@ void Player::MovePlayer(sf::Time delta_time)
 
 	if (buttons_state.trigger == ButtonsState::pressed && last_shot + cool_down < passed_time)
 	{
-		auto new_bullet = ShootBullet(true, entity.GetPositionComponent()->GetPosition() + sf::Vector2f(64, 0),
+		auto new_bullet = ShootBullet(true, entity->GetPositionComponent()->GetPosition() + sf::Vector2f(64, 0),
 			sf::Vector2f(0, -player_bullet_speed));
 
 		if (new_bullet)

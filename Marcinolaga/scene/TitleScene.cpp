@@ -4,7 +4,7 @@
 
 TitleScene::TitleScene()
 {
-	welcome = Entity::Create()
+	welcome = EntityBase::Create()
 		.AddGraphic("Assets/title.png", 100)
 		.AddPosition(sf::Vector2f(400, 200))
 		.AddControl({ sf::Keyboard::Space }, ToGameplayCallback, this)
@@ -21,7 +21,7 @@ void TitleScene::Update(sf::Time delta_time)
 
 }
 
-void TitleScene::HandleCollision(Entity* collide, Entity* touched)
+void TitleScene::HandleCollision(EntityPtr collide, EntityPtr touched)
 {
 
 }

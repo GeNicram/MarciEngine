@@ -23,7 +23,7 @@ std::shared_ptr<PositionComponent> PositionManager::ApplyPosition(Entity& entity
 	std::vector<std::shared_ptr<PositionComponent>>::iterator new_position =
 		position_components.emplace(position_components.end(), new PositionComponent(entity));
 
-	entity.AddComponent(*new_position);
+	entity->AddComponent(*new_position);
 
 	(*new_position)->SetPosition(position);
 
